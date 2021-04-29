@@ -1,0 +1,117 @@
+  label {
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    opacity: 0;
+  }
+  
+  body {
+    font-size: 20px;
+    font-family: "Roboto Slab", serif;
+    margin: 50px 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .switches {
+    max-width: 500px;
+    width: 95%;
+    margin: 50px auto 0;
+    border-radius: 5px;
+    color: #e8e9ed;
+    background: #18172c;
+  }
+  
+  .switches label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  
+  .switches label span:last-child {
+    position: relative;
+    width: 59px;
+    height: 26px;
+    border-radius: 15px;
+    background: #434257;
+    transition: 0.3s;
+    font-size: 12px;
+  }
+  
+  .switches input[type="checkbox"]:focus + label > span:last-child {
+    box-shadow: 1px 1px 11px 1px red;
+  }
+  
+  .switches label > span:last-child span {
+    margin-left: 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  
+  .switches > input[type="checkbox"]:checked + label > span:last-child > span:first-child {
+    opacity: 1;
+  }
+  
+  .switches > input[type="checkbox"]:checked + label > span:last-child > span:last-child {
+    opacity: 0;
+  }
+  
+  .switches > input[type="checkbox"]:not(:checked) + label > span:last-child > span:first-child {
+    opacity: 0;
+  }
+  
+  .switches > input[type="checkbox"]:not(:checked) + label > span:last-child > span:last-child {
+    opacity: 1;
+  }
+  
+  .switches span:last-child::before,
+  .switches span:last-child::after {
+    content: "";
+    position: absolute;
+  }
+  
+  .switches label > span:last-child::before {
+    left: 1px;
+    top: 1px;
+    width: 24px;
+    height: 24px;
+    background: #e8e9ed;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.3s;
+  }
+  
+  .switches span:last-child::after {
+    top: 50%;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .switches [type="checkbox"]:checked + label span:last-child {
+    background: #00d084;
+  }
+  
+  .switches [type="checkbox"]:checked + label span:last-child::before {
+    transform: translateX(34px);
+  }
+  
+  .switches [type="checkbox"]:checked + label span:last-child::after {
+    width: 14px;
+    height: 14px;
+    left: 8px;
+  }
+
+  .swipe-off {
+    display: inline;
+  }
+
+  .switches > input[type="checkbox"] + label > span:last-child > span:last-child {
+      display: inline;
+      margin-left: 0px;
+  }
