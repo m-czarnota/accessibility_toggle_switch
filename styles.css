@@ -4,6 +4,8 @@
   
   input[type="checkbox"] {
     opacity: 0;
+    width: 0.01px;
+    height: 0.01px;
   }
   
   body {
@@ -16,8 +18,12 @@
     font-size: 2rem;
     text-align: center;
   }
+
+  .swipe-off, .swipe-on, .switches-swipe {
+    user-select: none;
+  }
   
-  .switches {
+  .switches-label {
     max-width: 500px;
     width: 95%;
     margin: 50px auto 0;
@@ -26,14 +32,14 @@
     background: #18172c;
   }
   
-  .switches label {
+  .switches-label label {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
   }
   
-  .switches label span:last-child {
+  .switches-label label > .switches-swipe {
     position: relative;
     width: 59px;
     height: 26px;
@@ -43,39 +49,38 @@
     font-size: 12px;
   }
   
-  .switches input[type="checkbox"]:focus + label > span:last-child {
+  .switches-label input[type="checkbox"]:focus + label > .switches-swipe {
     box-shadow: 1px 1px 11px 1px red;
   }
   
-  .switches label > span:last-child span {
+  .switches-swipe span {
     margin-left: 10px;
     margin-top: 6px;
     display: inline-block;
   }
   
-  .switches > input[type="checkbox"]:checked + label > span:last-child > span:first-child {
+  .switches-label > input[type="checkbox"]:checked + label > .switches-swipe > .swipe-on {
     opacity: 1;
   }
   
-  .switches > input[type="checkbox"]:checked + label > span:last-child > span:last-child {
+  .switches-label > input[type="checkbox"]:checked + label > .switches-swipe > .swipe-off {
     opacity: 0;
   }
   
-  .switches > input[type="checkbox"]:not(:checked) + label > span:last-child > span:first-child {
+  .switches-label > input[type="checkbox"]:not(:checked) + label > .switches-swipe > .swipe-on {
     opacity: 0;
   }
   
-  .switches > input[type="checkbox"]:not(:checked) + label > span:last-child > span:last-child {
+  .switches-label > input[type="checkbox"]:not(:checked) + label > .switches-swipe > .swipe-off {
     opacity: 1;
   }
   
-  .switches span:last-child::before,
-  .switches span:last-child::after {
+  .switches-label .switches-swipe:before {
     content: "";
     position: absolute;
   }
   
-  .switches label > span:last-child::before {
+  .switches-swipe:before {
     left: 1px;
     top: 1px;
     width: 24px;
@@ -85,23 +90,17 @@
     z-index: 1;
     transition: transform 0.3s;
   }
+
   
-  .switches span:last-child::after {
-    top: 50%;
-    right: 8px;
-    width: 12px;
-    height: 12px;
-  }
-  
-  .switches [type="checkbox"]:checked + label span:last-child {
+  .switches-label [type="checkbox"]:checked + label > .switches-swipe {
     background: #00d084;
   }
   
-  .switches [type="checkbox"]:checked + label span:last-child::before {
+  .switches-label [type="checkbox"]:checked + label > .switches-swipe:before {
     transform: translateX(34px);
   }
   
-  .switches [type="checkbox"]:checked + label span:last-child::after {
+  .switches-label [type="checkbox"]:checked + label > .switches-swipe:after {
     width: 14px;
     height: 14px;
     left: 8px;
@@ -111,7 +110,7 @@
     display: inline;
   }
 
-  .switches > input[type="checkbox"] + label > span:last-child > span:last-child {
+  .switches-label > input[type="checkbox"] + label > .switches-swipe > .swipe-off {
       display: inline;
       margin-left: 0px;
   }
